@@ -1,21 +1,30 @@
+import { supabase } from '../lib/supabase'
 import { useRouter } from 'next/router'
-import { useSupabaseClient } from '@supabase/auth-helpers-react'
-import { useEffect } from 'react'
+import { useState } from 'react'
 
 export default function Login() {
-  const supabase = useSupabaseClient()
   const router = useRouter()
-
-  useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (session) router.push('/dashboard')
-    })
-    return () => subscription.unsubscribe()
-  }, [])
+  const [email, setEmail] = useState('')
 
   const signIn = async () => {
-    await supabase.auth.signInWithOtp({ email: prompt('Enter your email') })
+    const { error } = await supabase.auth.signInWithOtp({ email })
+    if (error) {
+      console.error('Login error:', error.message)
+    } else {
+      alert('Check your email for the login link!')
+      router.push('/dashboard')
+    }
   }
 
-  return <button onClick={signIn}>Login with Email</button>
+  return (
+    <div>
+      <input
+        type="email"
+        placeholder="Your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <button onClick={signIn}>Login</button>
+    </div>
+  )
 }

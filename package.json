@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/365assist/white-label-ai.git"
+    "url": "git+https://github.com/365assist/wl.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/365assist/white-label-ai/issues"
+    "url": "https://github.com/365assist/wl/issues"
   },
-  "homepage": "https://github.com/365assist/white-label-ai#readme",
+  "homepage": "https://github.com/365assist/wl#readme",
   "dependencies": {
     "@supabase/auth-ui-react": "^0.4.7",
     "@supabase/auth-ui-shared": "^0.1.8",

@@ -1,0 +1,1 @@
+export const assistPrompts = [{ label: 'Outlook Error', prompt: (q) => `Fix this Outlook error: ${q}` },{ label: 'Excel Help', prompt: (q) => `What formula solves: ${q}` }]

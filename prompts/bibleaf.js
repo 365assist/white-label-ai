@@ -1,0 +1,1 @@
+export const biblePrompts = [{ label: 'Verse Context', prompt: (q) => `Explain this Bible verse: ${q}` },{ label: 'Devotional', prompt: (q) => `7-day devotional plan on: ${q}` }]
